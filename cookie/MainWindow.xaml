@@ -5,8 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cookie"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Double Cup Clicker"
+        Height="500"
+        Width="400"
+        Background="#111111">
+
     <Grid>
+
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <TextBlock x:Name="CookiesText"
+                       Text="Cups: 0"
+                       FontSize="32"
+                       FontWeight="Bold"
+                       Foreground="#C77DFF"
+                       Margin="10"
+                       TextAlignment="Center"/>
+
+            <Button Content="🥤"
+                    Width="220"
+                    Height="220"
+                    FontSize="90"
+                    Background="#2A0A3D"
+                    Foreground="White"
+                    BorderBrush="#C77DFF"
+                    BorderThickness="4"
+                    Click="Cookie_Click">
+
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="20"
+                                      Color="#C77DFF"
+                                      ShadowDepth="0"/>
+                </Button.Effect>
+
+            </Button>
+
+            <TextBlock x:Name="ClickText"
+                       Text="Drank za click: 1"
+                       FontSize="18"
+                       Foreground="White"
+                       Margin="10"
+                       TextAlignment="Center"/>
+
+            <TextBlock x:Name="SecondText"
+                       Text="Flow za sekundu: 0"
+                       FontSize="18"
+                       Foreground="White"
+                       Margin="10"
+                       TextAlignment="Center"/>
+
+            <Button Content="SHOP"
+                    Width="160"
+                    Height="45"
+                    Margin="15"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Background="#6A00F4"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Click="OpenShop_Click"/>
+
+            <Border Background="#1E1E1E"
+                    CornerRadius="10"
+                    Padding="10"
+                    Margin="10">
+
+                <TextBlock x:Name="StatsText"
+                           Foreground="White"
+                           FontSize="16"/>
+
+            </Border>
+
+        </StackPanel>
 
     </Grid>
 </Window>

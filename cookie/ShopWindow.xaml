@@ -1,0 +1,241 @@
+﻿<Window x:Class="cookie.ShopWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cookie"
+        mc:Ignorable="d"
+        Title="UNDERGROUND SHOP"
+        Height="550"
+        Width="380"
+        WindowStartupLocation="CenterScreen"
+        Background="#0F0F0F">
+
+    <Grid>
+
+        <!-- BACKGROUND -->
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#0F0F0F" Offset="0"/>
+                <GradientStop Color="#1B0033" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+            <StackPanel Margin="15">
+
+                <!-- TITLE -->
+
+                <TextBlock Text="UNDERGROUND SHOP"
+                           FontSize="28"
+                           FontWeight="Bold"
+                           Foreground="#C77DFF"
+                           HorizontalAlignment="Center"
+                           Margin="0 0 0 20">
+
+                    <TextBlock.Effect>
+                        <DropShadowEffect BlurRadius="20"
+                                          Color="#C77DFF"
+                                          ShadowDepth="0"/>
+                    </TextBlock.Effect>
+
+                </TextBlock>
+
+                <!-- BIGGER SIP -->
+
+                <Border Background="#1A1A1A"
+                        CornerRadius="15"
+                        Padding="10"
+                        Margin="0 0 0 15">
+
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="15"
+                                          Color="#6A00F4"
+                                          ShadowDepth="0"/>
+                    </Border.Effect>
+
+                    <StackPanel>
+
+                        <TextBlock Text="🥤 BIGGER SIP"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+
+                        <TextBlock Text="+1 drank per click"
+                                   Foreground="#BBBBBB"
+                                   Margin="0 5"/>
+
+                        <Button Content="BUY - 10"
+                                Height="40"
+                                Margin="0 10 0 0"
+                                FontWeight="Bold"
+                                FontSize="16"
+                                Background="#6A00F4"
+                                Foreground="White"
+                                BorderThickness="0"
+                                Click="Cursor_Click"/>
+
+                    </StackPanel>
+
+                </Border>
+
+                <!-- RAGE BOOST -->
+
+                <Border Background="#1A1A1A"
+                        CornerRadius="15"
+                        Padding="10"
+                        Margin="0 0 0 15">
+
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="15"
+                                          Color="#6A00F4"
+                                          ShadowDepth="0"/>
+                    </Border.Effect>
+
+                    <StackPanel>
+
+                        <TextBlock Text="⚡ RAGE BOOST"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+
+                        <TextBlock Text="+5 drank per click"
+                                   Foreground="#BBBBBB"
+                                   Margin="0 5"/>
+
+                        <Button Content="BUY - 50"
+                                Height="40"
+                                Margin="0 10 0 0"
+                                FontWeight="Bold"
+                                FontSize="16"
+                                Background="#6A00F4"
+                                Foreground="White"
+                                BorderThickness="0"
+                                Click="Double_Click"/>
+
+                    </StackPanel>
+
+                </Border>
+
+                <!-- UNDERGROUND PLUG -->
+
+                <Border Background="#1A1A1A"
+                        CornerRadius="15"
+                        Padding="10"
+                        Margin="0 0 0 15">
+
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="15"
+                                          Color="#6A00F4"
+                                          ShadowDepth="0"/>
+                    </Border.Effect>
+
+                    <StackPanel>
+
+                        <TextBlock Text="👤 UNDERGROUND PLUG"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+
+                        <TextBlock Text="+1 flow per second"
+                                   Foreground="#BBBBBB"
+                                   Margin="0 5"/>
+
+                        <Button Content="BUY - 100"
+                                Height="40"
+                                Margin="0 10 0 0"
+                                FontWeight="Bold"
+                                FontSize="16"
+                                Background="#6A00F4"
+                                Foreground="White"
+                                BorderThickness="0"
+                                Click="Grandma_Click"/>
+
+                    </StackPanel>
+
+                </Border>
+
+                <!-- STUDIO SESSION -->
+
+                <Border Background="#1A1A1A"
+                        CornerRadius="15"
+                        Padding="10"
+                        Margin="0 0 0 15">
+
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="15"
+                                          Color="#6A00F4"
+                                          ShadowDepth="0"/>
+                    </Border.Effect>
+
+                    <StackPanel>
+
+                        <TextBlock Text="🎵 STUDIO SESSION"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+
+                        <TextBlock Text="+5 flow per second"
+                                   Foreground="#BBBBBB"
+                                   Margin="0 5"/>
+
+                        <Button Content="BUY - 500"
+                                Height="40"
+                                Margin="0 10 0 0"
+                                FontWeight="Bold"
+                                FontSize="16"
+                                Background="#6A00F4"
+                                Foreground="White"
+                                BorderThickness="0"
+                                Click="Bakery_Click"/>
+
+                    </StackPanel>
+
+                </Border>
+
+                <!-- TONKA FACTORY -->
+
+                <Border Background="#1A1A1A"
+                        CornerRadius="15"
+                        Padding="10"
+                        Margin="0 0 0 15">
+
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="15"
+                                          Color="#6A00F4"
+                                          ShadowDepth="0"/>
+                    </Border.Effect>
+
+                    <StackPanel>
+
+                        <TextBlock Text="🚗 TONKA FACTORY"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+
+                        <TextBlock Text="+25 flow per second"
+                                   Foreground="#BBBBBB"
+                                   Margin="0 5"/>
+
+                        <Button Content="BUY - 2500"
+                                Height="40"
+                                Margin="0 10 0 0"
+                                FontWeight="Bold"
+                                FontSize="16"
+                                Background="#6A00F4"
+                                Foreground="White"
+                                BorderThickness="0"
+                                Click="Factory_Click"/>
+
+                    </StackPanel>
+
+                </Border>
+
+            </StackPanel>
+
+        </ScrollViewer>
+
+    </Grid>
+</Window>
