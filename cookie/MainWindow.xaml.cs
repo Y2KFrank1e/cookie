@@ -1,46 +1,31 @@
-﻿using System.Media;
-using System.Text;
+﻿using System;
+using System.Media;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Windows.Media.Animation;
+using System.Windows.Media;
 
 namespace cookie
 {
     public partial class MainWindow : Window
     {
-        // GAME VALUES
+        public double cups = 0;
 
-        public double cookies = 0;
+        public double cupsPerClick = 1;
 
-        public double cookiesPerClick = 1;
-
-        public double cookiesPerSecond = 0;
+        public double cupsPerSecond = 0;
 
         public int totalClicks = 0;
 
         public int totalUpgrades = 0;
 
-        // TIMER
-
         DispatcherTimer timer = new DispatcherTimer();
-
-        // SHOP WINDOW
 
         ShopWindow shop;
 
         public MainWindow()
         {
             InitializeComponent();
-
-            // TIMER SETTINGS
 
             timer.Interval = TimeSpan.FromSeconds(1);
 
@@ -51,20 +36,20 @@ namespace cookie
             UpdateUI();
         }
 
-        // AUTO PRODUCTION
+        // AUTO FLOW
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            cookies += cookiesPerSecond;
+            cups += cupsPerSecond;
 
             UpdateUI();
         }
 
-        // CLICKING CUP
+        // CLICK CUP
 
         private void Cookie_Click(object sender, RoutedEventArgs e)
         {
-            cookies += cookiesPerClick;
+            cups += cupsPerClick;
 
             totalClicks++;
 
@@ -91,27 +76,27 @@ namespace cookie
             }
         }
 
-        // UPDATE TEXTS
+        // UPDATE UI
 
         public void UpdateUI()
         {
             CookiesText.Text =
-                "CUPS: " + Math.Floor(cookies);
+                "CUPS: " + Math.Floor(cups);
 
             ClickText.Text =
                 "DRANK PER CLICK: " +
-                cookiesPerClick;
+                cupsPerClick;
 
             SecondText.Text =
                 "FLOW PER SECOND: " +
-                cookiesPerSecond;
+                cupsPerSecond;
 
             StatsText.Text =
                 "TOTAL CLICKS: " + totalClicks +
                 "\nUPGRADES: " + totalUpgrades;
         }
 
-        // CUP ROTATION ANIMATION
+        // ANIMATION
 
         private void AnimateCup()
         {
@@ -135,7 +120,7 @@ namespace cookie
                 rotate);
         }
 
-        // CLICK SOUND
+        // SOUND
 
         private void PlayClickSound()
         {

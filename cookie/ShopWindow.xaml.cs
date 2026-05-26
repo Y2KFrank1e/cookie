@@ -1,165 +1,181 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using cookie;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace cookie
 {
-    /// <summary>
-    /// Interakční logika pro ShopWindow.xaml
-    /// </summary>
     public partial class ShopWindow : Window
     {
-        public partial class ShopWindow : Window
+        MainWindow main;
+
+        // PRICES
+
+        double cursorPrice = 10;
+
+        double doublePrice = 50;
+
+        double grandmaPrice = 100;
+
+        double bakeryPrice = 500;
+
+        double factoryPrice = 2500;
+
+        public ShopWindow(MainWindow window)
         {
-            MainWindow main;
+            InitializeComponent();
 
-            // PRICES
+            main = window;
 
-            double cursorPrice = 10;
+            UpdatePrices();
+        }
 
-            double doublePrice = 50;
+        // UPDATE BUTTON PRICES
 
-            double grandmaPrice = 100;
+        private void UpdatePrices()
+        {
+            CursorButton.Content =
+                "🥤 BIGGER SIP (+1 click) - " +
+                Math.Round(cursorPrice);
 
-            double bakeryPrice = 500;
+            DoubleButton.Content =
+                "⚡ RAGE BOOST (+5 click) - " +
+                Math.Round(doublePrice);
 
-            double factoryPrice = 2500;
+            GrandmaButton.Content =
+                "👤 UNDERGROUND PLUG (+1/sec) - " +
+                Math.Round(grandmaPrice);
 
-            public ShopWindow(MainWindow window)
+            BakeryButton.Content =
+                "🎵 STUDIO SESSION (+5/sec) - " +
+                Math.Round(bakeryPrice);
+
+            FactoryButton.Content =
+                "🚗 TONKA FACTORY (+25/sec) - " +
+                Math.Round(factoryPrice);
+        }
+
+        // BIGGER SIP
+
+        private void Cursor_Click(object sender, RoutedEventArgs e)
+        {
+            if (main.cups >= cursorPrice)
             {
-                InitializeComponent();
+                main.cups -= cursorPrice;
 
-                main = window;
+                main.cupsPerClick += 1;
+
+                cursorPrice =
+                    Math.Round(cursorPrice * 1.5);
+
+                main.totalUpgrades++;
+
+                main.UpdateUI();
+
+                UpdatePrices();
             }
-
-            // BIGGER SIP
-
-            private void Cursor_Click(object sender, RoutedEventArgs e)
+            else
             {
-                if (main.cookies >= cursorPrice)
-                {
-                    main.cookies -= cursorPrice;
-
-                    main.cookiesPerClick += 1;
-
-                    cursorPrice =
-                        Math.Round(cursorPrice * 1.5);
-
-                    main.totalUpgrades++;
-
-                    main.UpdateUI();
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "NOT ENOUGH DRANK 💀");
-                }
+                MessageBox.Show("NOT ENOUGH DRANK 💀");
             }
+        }
 
-            // RAGE BOOST
+        // RAGE BOOST
 
-            private void Double_Click(object sender, RoutedEventArgs e)
+        private void Double_Click(object sender, RoutedEventArgs e)
+        {
+            if (main.cups >= doublePrice)
             {
-                if (main.cookies >= doublePrice)
-                {
-                    main.cookies -= doublePrice;
+                main.cups -= doublePrice;
 
-                    main.cookiesPerClick += 5;
+                main.cupsPerClick += 5;
 
-                    doublePrice =
-                        Math.Round(doublePrice * 1.5);
+                doublePrice =
+                    Math.Round(doublePrice * 1.5);
 
-                    main.totalUpgrades++;
+                main.totalUpgrades++;
 
-                    main.UpdateUI();
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "NOT ENOUGH DRANK 💀");
-                }
+                main.UpdateUI();
+
+                UpdatePrices();
             }
-
-            // UNDERGROUND PLUG
-
-            private void Grandma_Click(object sender, RoutedEventArgs e)
+            else
             {
-                if (main.cookies >= grandmaPrice)
-                {
-                    main.cookies -= grandmaPrice;
-
-                    main.cookiesPerSecond += 1;
-
-                    grandmaPrice =
-                        Math.Round(grandmaPrice * 1.5);
-
-                    main.totalUpgrades++;
-
-                    main.UpdateUI();
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "NOT ENOUGH DRANK 💀");
-                }
+                MessageBox.Show("NOT ENOUGH DRANK 💀");
             }
+        }
 
-            // STUDIO SESSION
+        // UNDERGROUND PLUG
 
-            private void Bakery_Click(object sender, RoutedEventArgs e)
+        private void Grandma_Click(object sender, RoutedEventArgs e)
+        {
+            if (main.cups >= grandmaPrice)
             {
-                if (main.cookies >= bakeryPrice)
-                {
-                    main.cookies -= bakeryPrice;
+                main.cups -= grandmaPrice;
 
-                    main.cookiesPerSecond += 5;
+                main.cupsPerSecond += 1;
 
-                    bakeryPrice =
-                        Math.Round(bakeryPrice * 1.5);
+                grandmaPrice =
+                    Math.Round(grandmaPrice * 1.5);
 
-                    main.totalUpgrades++;
+                main.totalUpgrades++;
 
-                    main.UpdateUI();
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "NOT ENOUGH DRANK 💀");
-                }
+                main.UpdateUI();
+
+                UpdatePrices();
             }
-
-            // TONKA FACTORY
-
-            private void Factory_Click(object sender, RoutedEventArgs e)
+            else
             {
-                if (main.cookies >= factoryPrice)
-                {
-                    main.cookies -= factoryPrice;
+                MessageBox.Show("NOT ENOUGH DRANK 💀");
+            }
+        }
 
-                    main.cookiesPerSecond += 25;
+        // STUDIO SESSION
 
-                    factoryPrice =
-                        Math.Round(factoryPrice * 1.5);
+        private void Bakery_Click(object sender, RoutedEventArgs e)
+        {
+            if (main.cups >= bakeryPrice)
+            {
+                main.cups -= bakeryPrice;
 
-                    main.totalUpgrades++;
+                main.cupsPerSecond += 5;
 
-                    main.UpdateUI();
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "NOT ENOUGH DRANK 💀");
-                }
+                bakeryPrice =
+                    Math.Round(bakeryPrice * 1.5);
+
+                main.totalUpgrades++;
+
+                main.UpdateUI();
+
+                UpdatePrices();
+            }
+            else
+            {
+                MessageBox.Show("NOT ENOUGH DRANK 💀");
+            }
+        }
+
+        // TONKA FACTORY
+
+        private void Factory_Click(object sender, RoutedEventArgs e)
+        {
+            if (main.cups >= factoryPrice)
+            {
+                main.cups -= factoryPrice;
+
+                main.cupsPerSecond += 25;
+
+                factoryPrice =
+                    Math.Round(factoryPrice * 1.5);
+
+                main.totalUpgrades++;
+
+                main.UpdateUI();
+
+                UpdatePrices();
+            }
+            else
+            {
+                MessageBox.Show("NOT ENOUGH DRANK 💀");
             }
         }
     }
