@@ -177,6 +177,14 @@ namespace cookie
             {
                 MessageBox.Show("NOT ENOUGH DRANK 💀");
             }
+       
+    
+        }
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+
+            this.Hide();
         }
     }
 }
